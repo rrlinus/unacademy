@@ -8,7 +8,7 @@ def create_app():
     db.init_app(app)
     db.app = app
     from .main import main as main_blueprint
-    app.register_blueprint(main_blueprint)
+    app.register_blueprint(main_blueprint, url_prefix='/api')
     logger = sys_logger.get_network_logger
     @app.after_request
     def after_request(response):
